@@ -1,0 +1,64 @@
+{% extends 'master_dashboard/master_layout.html' %}
+{% load static %}
+{% block content %}
+
+
+ <div class="container-fluid mt-3">
+          <!--  -->
+
+                <div class="row">
+                    <div class="col-lg-12">
+                        <div class="card">
+                            <div class="card-body">
+                                <div class="active-member">
+                                     
+                                        <table class="table">
+                                                                        
+                                   <tr>
+                                      <th>Name</th>
+                                      <td>{{profile.full_name}}</td>
+                                    </tr>
+                                    <tr>
+                                      <th>Address</th>
+                                      <td>{{profile.profile}}</td>
+                                    </tr>
+                                    <tr>
+                                      <th>Mobile Number</th>
+                                      <td>{{profile.phone}}</td>
+                                    </tr>
+                                    <tr>
+                                      <th>Gender</th>
+                                      <td>{{profile.gender}}</td>
+                                    </tr>
+                                    <tr>
+                                      <th>Email Id</th>
+                                      <td>{{profile.email}}</td>
+                                    </tr>
+                                    <tr>
+                                      <th>Arts Name</th>
+                                      <td>{{profile.artsname}}</td>
+                                    </tr>
+                                    <tr>
+                                        <td><a class="btn btn-info" href="{% url 'edit_prof' %}">Edit</a></td>
+                                    </tr>
+
+                                </table>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>                        
+                    </div>
+                </div>
+
+                <!--  -->
+
+                
+
+                <div class="row">
+                
+                    </div>
+            </div>
+            
+            
+    
+            {% endblock %}

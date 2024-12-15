@@ -1,0 +1,68 @@
+{% extends 'master_dashboard/master_layout.html' %}
+{% load static %}
+{% block content %}
+
+<div class="container-fluid mt-3">
+    <div class="row">
+
+        <!-- First Column -->
+        
+
+        <!-- Second Column -->
+        <div class="col-md-12">
+            <div class="card">
+                <div class="card-body">
+                    <div class="active-member">
+                       
+                            <h5>Add Video Tips</h5>
+
+                           <form method="post" action="{% url 'add_video' %}">
+                            {% csrf_token %}
+                            <div class="form-group"> 
+  <label class="col-sm-12 control-label">Title</label> 
+  <div class='col-lg-12'>
+    <input required class='form-control' type='text' name='title' pattern="[a-zA-Z\s]+" title="only alphabets and spaces allowed"/></div></div>
+
+  <div class="form-group"> 
+  <label class="col-sm-12 control-label">Descrption</label> 
+  <div class='col-lg-12'>
+    <textarea required class='form-control' name='desc'pattern="[a-zA-Z\s]+" title="only alphabets and spaces allowed"></textarea>
+  </div>
+</div>
+<div class="form-group"> 
+  <label class="col-sm-12 control-label">Youtube Link Id</label> 
+  <div class='col-lg-12'>
+    <input required class='form-control' type='text' name='link'/>
+  </div>
+</div>
+<div class="form-group"> 
+  <label class="col-sm-12 control-label">Arts</label> 
+  <div class='col-lg-12'>
+    <select name="arts" class='form-control'>
+        <option value="">Select</option>
+        {% for a in alist %}
+            <option value="{{a.artsid}}">{{a.artsname}}</option>
+           {% endfor %}
+        </select>
+  </div>
+</div>
+
+<div class="form-group">
+                        <label class="col-sm-3 control-label"></label>
+                        <div class="col-sm-12">
+                            <button type="submit" class="btn btn-success">Submit</button>
+                    <button type="reset" class="btn btn-danger">Cancel</button>
+                    <input required class='form-control' type='hidden' value="{{pack_id}}" name='package_id' id='package_id'/>
+                        </div>
+                    </div>
+                </form>
+</div>
+                        
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+
+{% endblock %}

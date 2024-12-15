@@ -1,0 +1,84 @@
+{% extends 'admin/admin_layout.html' %}
+{% load static %}
+{% block content %}
+
+<div class="container-fluid mt-3">
+    <div class="row">
+        <!-- First Column -->
+        <div class="col-md-7">
+            <div class="card">
+                <div class="card-body">
+                    <div class="active-member">
+                        <div class="table-responsive">
+                            <h3>STUDENT FEES</h3>
+                            <table class="table table-xs mb-0">
+                                <thead>
+                                    <tr>
+                                        <th>STUDENT NAME</th>  
+ <th>AMOUNT</th>
+   <th>DUE DATE</th>  
+   <th>PAID DATE</th>
+   <th>STATUS</th>  
+                                       
+                                    </tr>
+                                </thead>
+                                <tbody>
+                                    {% for f in fe_list %}
+                                    <tr>
+                                        <td>{{ f.name }}</td>
+                                        <td>{{ f.amount }}</td>
+                                        <td>{{ f.due_date|date:'d-m-Y'}}</td>
+                                        <td>{{ f.pay_date|date:"d-m-Y" }}</td>
+                                        <td>{{ f.status }}</td>
+
+                                        
+                                    </tr>
+                                    {% endfor %}
+                                </tbody>
+                            </table>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <!-- Second Column -->
+        <div class="col-md-5">
+            <div class="card">
+                <div class="card-body">
+                    <div class="active-member">
+                       
+                            <h5>Add Student Fees</h5>
+
+                           <form method="post" action="{% url 'save_invoice' %}">
+                            {% csrf_token %}
+                            <div class="form-group"> 
+  <label class="col-sm-12 control-label">Amount</label> 
+  <div class='col-lg-12'>
+    <input required class='form-control' type='text' name='amt' value="{{plist.cost}}" readonly="" /></div></div>
+
+  <div class="form-group"> 
+  <label class="col-sm-12 control-label">date</label> 
+  <div class='col-lg-12'>
+    <input type="date" required class='form-control' name='duedate' min="{% now 'Y-m-d' %}">
+  </div>
+</div>
+
+
+<div class="form-group">
+                        <label class="col-sm-3 control-label"></label>
+                        <div class="col-sm-12">
+                            <button type="submit" class="btn btn-success">Submit</button>
+                    <button type="reset" class="btn btn-danger">Cancel</button>
+                    <input type="hidden" name="bid" value="{{bookid}}">
+                    </div>
+</div>
+                        
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+
+{% endblock %}

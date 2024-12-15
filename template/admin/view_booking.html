@@ -1,0 +1,66 @@
+{% extends 'admin/admin_layout.html' %}
+{% load static %}
+{% block content %}
+
+
+ <div class="container-fluid mt-3">
+          <!--  -->
+
+                <div class="row">
+                    <div class="col-lg-12">
+                        <div class="card">
+                            <div class="card-body">
+                                <div class="active-member">
+                                    <div class="table-responsive"><h5>PACKAGE BOOKINGS</h5></div>
+                                        <table class="table table-xs mb-0">
+                                            <thead>
+                                                <tr>
+                                                    <th>PACKAGE NAME</th>
+                                                    <th>ARTS NAME</th>  
+     
+   <th>DURATION</th>  
+   <th>COST</th>  
+     <th>STUDENT DETAILS</th> 
+  <th>ACTIONS</th> </tr> 
+                                                </tr>
+                                            </thead>
+                                            <tbody>
+                                                {% for b in blist %}
+                                                <tr>
+                                                    <td>{{b.package_title }}</td>
+                                                    <td>{{b.artsname}}</td>
+                                                    <td>{{b.duration}}</td>
+                                                    <td>{{b.cost}}</td>
+                                                    <td>{{b.name}}<br>{{b.address}}</td>
+                                                    
+
+                                                        <!-- <td>{{i.image}}
+                                                     </td> -->
+                                                    
+                                                   <td> <a href="{% url 'fee_invoice' b.bookid %}" class="btn btn-danger btn-sm">Fee Invoice</a>
+                        
+                                                 </td>
+                                                </tr>
+                                                
+                                                {% endfor %}    
+                                            </tbody>
+                                        </table>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>                        
+                    </div>
+                </div>
+
+                <!--  -->
+
+                
+
+                <div class="row">
+                
+                    </div>
+            </div>
+            
+            
+    
+            {% endblock %}

@@ -1,0 +1,65 @@
+{% extends 'student/student_layout.html' %}
+{% load static %}
+{% block content %}
+
+
+ <div class="container-fluid mt-3">
+          <!--  -->
+
+                <div class="row">
+                    <div class="col-lg-12">
+                        <div class="card">
+                            <div class="card-body">
+                                <div class="active-member">
+                                    <div class="table-responsive">
+                                        <table class="table table-xs mb-0">
+                                            <thead>
+                                                <tr>
+                                                    <th>PACKAGE NAME</th>  
+   <th>ARTS NAME</th>  
+   <th>TIME FROM</th>  
+   <th>TIME TO</th>  
+   <th>DATE</th> 
+     
+   
+                                                </tr>
+                                            </thead>
+                                            <tbody>
+                                                {% for s in slist %}
+                                                <tr>
+                                                    <td>{{s.package_title}}</td>
+                                                    <td>{{s.artsname}}</td>
+                                                    <td>{{s.time_from}}</td>
+                                                    <td>{{s.time_to}}</td>
+                                                    <td>{{s.date|date:'d-m-Y'}}</td>
+                                                    
+                                                    
+                                      
+                                                    
+                                                    
+                                                    
+                                                   
+                                                </tr>
+                                                
+                                                {% endfor %}    
+                                            </tbody>
+                                        </table>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>                        
+                    </div>
+                </div>
+
+                <!--  -->
+
+                
+
+                <div class="row">
+                
+                    </div>
+            </div>
+            
+            
+    
+            {% endblock %}

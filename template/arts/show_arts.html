@@ -1,0 +1,58 @@
+{% extends 'admin/admin_layout.html' %}
+{% load static %}
+{% block content %}
+
+
+ <div class="container-fluid mt-3">
+          <!--  -->
+
+                <div class="row">
+                    <div class="col-lg-12">
+                        <div class="card">
+                            <div class="card-body">
+                                <div class="active-member">
+                                    <div class="table-responsive"><a class="btn btn-primary" href="{% url 'add_arts' %}">create new</a> 
+                                        <table class="table table-xs mb-0">
+                                            <thead>
+                                                <tr>
+                                                    <th>ARTSNAME</th>  
+                                                   <th>DESCRIPTION</th>  
+                                                    <th>IMAGE</th> 
+                                                    <th>Actions</th>
+                                                </tr>
+                                            </thead>
+                                            <tbody>
+                                                {% for i in arts_list %}
+                                                <tr>
+                                                    <td>{{i.artsname}}</td>
+                                                    <td>{{i.description}}</td>
+                                                    <td><img src="{% get_media_prefix %}/{{ i.image}}" width="70" height="70"/></td>
+                                                       <!--  <td>{{i.image.url}}
+                                                     </td> -->
+                                                    
+                                                   <td><a href="{% url 'edit_arts' i.artsid %}" class="btn btn-primary btn-sm">Edit</a>
+                                                   <a href="{% url 'delete_arts' i.artsid %}" class="btn btn-danger btn-sm">Delete</a></td>
+                                                </tr>
+                                                
+                                                {% endfor %}    
+                                            </tbody>
+                                        </table>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>                        
+                    </div>
+                </div>
+
+                <!--  -->
+
+                
+
+                <div class="row">
+                
+                    </div>
+            </div>
+            
+            
+    
+            {% endblock %}

@@ -1,0 +1,52 @@
+{% extends 'master_dashboard/master_layout.html' %}
+{% load static %}
+{% block content %}
+
+<div class="container-fluid mt-3">
+    <div class="row">
+
+        <!-- First Column -->
+        <div class="col-md-12">
+            <div class="card">
+                <div class="card-body">
+                    
+                    <div class="active-member">
+                        <div class="table-responsive">
+                            <a href="{% url 'new_video' %}" class="btn btn-info">Create New</a>
+                            <table class="table table-xs mb-0">
+                                <thead>
+                                    <tr>
+                                        <th>TITLE</th>
+                                        <th>VIDEO DESCRIPTION</th>
+                                        <th>VIDEO</th>
+                                        <th>ACTIONS</th>
+                                       
+                                    </tr>
+                                </thead>
+                                <tbody>
+                                    {% for v in vlist %}
+                                    <tr>
+                                        <td>{{ v.title }}</td>
+                                        <td>{{ v.description }}</td>
+                                        <td>
+                                        <iframe width="280" height="240" src="{{ v.video_url }}" frameborder="0" allowfullscreen></iframe></td>
+                                    <td><a href="{% url 'delete_video' v.tips_id %}" class="btn btn-danger btn-sm">Delete</a></td>
+
+                                        
+                                    </tr>
+                                    {% endfor %}
+                                </tbody>
+                            </table>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <!-- Second Column -->
+        
+        </div>
+    </div>
+</div>
+
+{% endblock %}

@@ -1,0 +1,63 @@
+{% extends 'student/student_layout.html' %}
+{% load static %}
+{% block content %}
+
+
+ <div class="container-fluid mt-3">
+          <!--  -->
+
+                <div class="row">
+                    <div class="col-lg-12">
+                        <div class="card">
+                            <div class="card-body">
+                                <div class="active-member">
+                                    <div class="table-responsive">
+                                        <table class="table table-xs mb-0">
+                                            <thead>
+                                                <tr>
+                                                    <th>PACKAGE NAME</th>  
+   <th>ARTS NAME</th>  
+   <th>DURATION</th>  
+   <th>COST</th>  
+     
+   
+                                                </tr>
+                                            </thead>
+                                            <tbody>
+                                                {% for p in plist %}
+                                                <tr>
+                                                    <td>{{p.package_title}}</td>
+                                                    <td>{{p.artsname}}</td>
+                                                    <td>{{p.duration}}</td>
+                                                    <td>{{p.cost}}</td>
+                                                    <td><a class="btn btn-danger btn-xs" href="{% url 'view_pak_schedule' p.packgeid %}">SCHEDULE</a></td>
+                                                    
+                                      
+                                                    
+                                                    
+                                                    
+                                                   
+                                                </tr>
+                                                
+                                                {% endfor %}    
+                                            </tbody>
+                                        </table>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>                        
+                    </div>
+                </div>
+
+                <!--  -->
+
+                
+
+                <div class="row">
+                
+                    </div>
+            </div>
+            
+            
+    
+            {% endblock %}

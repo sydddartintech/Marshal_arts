@@ -1,0 +1,57 @@
+{% extends 'student/student_layout.html' %}
+{% load static %}
+{% block content %}
+
+
+ <div class="container-fluid mt-3">
+          <!--  -->
+
+                <div class="row">
+                    <div class="col-lg-12">
+                        <div class="card">
+                            <div class="card-body">
+                                <div class="active-member">
+                                    <div class="table-responsive">
+                                        <table border="1">
+                                            <thead>
+                                                <tr class="text-center">
+                                                    <th>TITLE</th>  
+   <th>VIDEO DESCRIPTION</th>  
+   <th>VIDEO</th>  
+    
+     
+   
+                                                </tr>
+                                            </thead>
+                                            <tbody>
+                                                {% for v in vi_list %}
+                                                <tr>
+                                                    <td>{{ v.title }}</td>
+                                        <td>{{ v.description }}</td>
+                                        <td>
+                                        <iframe width="250" height="200" src="{{ v.video_url }}" frameborder="0" allowfullscreen></iframe></td>
+                                           
+                                                </tr>
+                                                
+                                                {% endfor %}    
+                                            </tbody>
+                                        </table>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>                        
+                    </div>
+                </div>
+
+                <!--  -->
+
+                
+
+                <div class="row">
+                
+                    </div>
+            </div>
+            
+            
+    
+            {% endblock %}
